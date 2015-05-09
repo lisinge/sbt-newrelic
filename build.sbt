@@ -31,4 +31,6 @@ bintrayOrganization := Some("giltgroupe")
 
 bintrayPackageLabels := Seq("sbt", "newrelic", "sbt-native-packager")
 
+bintrayRepository := "sbt-plugin-releases"
+
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
