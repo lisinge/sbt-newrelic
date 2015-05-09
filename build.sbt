@@ -27,12 +27,8 @@ version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 
 publishMavenStyle := false
 
-bintraySettings
+bintrayOrganization := Some("giltgroupe")
 
-bintrayPublishSettings
-
-bintray.Keys.bintrayOrganization in bintray.Keys.bintray := Some("giltgroupe")
-
-bintray.Keys.packageLabels in bintray.Keys.bintray := Seq("sbt", "newrelic", "sbt-native-packager")
+bintrayPackageLabels := Seq("sbt", "newrelic", "sbt-native-packager")
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
