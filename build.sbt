@@ -1,5 +1,3 @@
-import com.typesafe.sbt.SbtGit._
-
 organization := "com.gilt.sbt"
 
 name := "sbt-newrelic"
@@ -27,9 +25,7 @@ scriptedBufferLog := false
 
 scalariformSettings
 
-versionWithGit
-
-git.baseVersion := "0.0.4"
+version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 
 publishMavenStyle := false
 
