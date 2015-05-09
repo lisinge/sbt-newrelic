@@ -4,7 +4,8 @@ import sbt._
 import sbt.Keys._
 
 import com.typesafe.sbt.SbtNativePackager._
-import NativePackagerKeys._
+import com.typesafe.sbt.packager.archetypes.JavaAppPackaging
+import com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport.bashScriptExtraDefines
 import com.typesafe.sbt.packager.archetypes.TemplateWriter
 
 object NewRelic extends AutoPlugin {
@@ -24,9 +25,11 @@ object NewRelic extends AutoPlugin {
 
   import autoImport._
 
+  override def requires = JavaAppPackaging
+
   val nrConfig = config("newrelic-agent").hide
 
-  def packagerSettings: Seq[Setting[_]] = Seq(
+  override lazy val projectSettings = Seq(
     ivyConfigurations += nrConfig,
     newrelicVersion := "3.15.0",
     newrelicAgent := findNewrelicAgent(update.value),
