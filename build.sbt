@@ -23,8 +23,6 @@ scriptedLaunchOpts := { scriptedLaunchOpts.value ++
 
 scriptedBufferLog := false
 
-scalariformSettings
-
 version := "git describe --tags --dirty --always".!!.stripPrefix("v").trim
 
 publishMavenStyle := false
