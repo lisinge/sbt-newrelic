@@ -40,10 +40,10 @@ object NewRelic extends AutoPlugin {
     newrelicLicenseKey := None,
     newrelicCustomTracing := false,
     newrelicTemplateReplacements := Seq(
-      "app_name" → newrelicAppName.value,
-      "license_key" → newrelicLicenseKey.value.getOrElse(""),
-      "custom_tracing" → newrelicCustomTracing.value.toString,
-      "attributes_enabled" → newrelicAttributesEnabled.value.toString
+      "app_name" -> newrelicAppName.value,
+      "license_key" -> newrelicLicenseKey.value.getOrElse(""),
+      "custom_tracing" -> newrelicCustomTracing.value.toString,
+      "attributes_enabled" -> newrelicAttributesEnabled.value.toString
     ),
     newrelicIncludeApi := false,
     libraryDependencies += "com.newrelic.agent.java" % "newrelic-agent" % newrelicVersion.value % nrConfig,
