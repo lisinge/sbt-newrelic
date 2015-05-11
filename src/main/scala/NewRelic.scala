@@ -14,6 +14,7 @@ object NewRelic extends AutoPlugin {
     val newrelicAgent = taskKey[File]("New Relic agent jar location")
     val newrelicAppName = settingKey[String]("App Name reported to New Relic monitoring")
     val newrelicAttributesEnabled = settingKey[Boolean]("Enable sending of attributes to New Relic")
+    val newrelicBrowserInstrumentation = settingKey[Boolean]("Enable automatic Real User Monitoring")
     val newrelicConfig = taskKey[File]("Generates a New Relic configuration file")
     val newrelicConfigTemplate = settingKey[java.net.URL]("Location of New Relic configuration template")
     val newrelicLicenseKey = settingKey[Option[String]]("License Key for New Relic account")
@@ -32,6 +33,7 @@ object NewRelic extends AutoPlugin {
     newrelicAgent := findNewrelicAgent(update.value),
     newrelicAppName := name.value,
     newrelicAttributesEnabled := true,
+    newrelicBrowserInstrumentation := true,
     newrelicConfig := makeNewRelicConfig((target in Universal).value, newrelicConfigTemplate.value, newrelicTemplateReplacements.value),
     newrelicConfigTemplate := getNewrelicConfigTemplate,
     newrelicLicenseKey := None,
@@ -40,7 +42,8 @@ object NewRelic extends AutoPlugin {
       "app_name" -> newrelicAppName.value,
       "license_key" -> newrelicLicenseKey.value.getOrElse(""),
       "custom_tracing" -> newrelicCustomTracing.value.toString,
-      "attributes_enabled" -> newrelicAttributesEnabled.value.toString
+      "attributes_enabled" -> newrelicAttributesEnabled.value.toString,
+      "browser_monitoring" -> newrelicBrowserInstrumentation.value.toString
     ),
     newrelicIncludeApi := false,
     libraryDependencies += "com.newrelic.agent.java" % "newrelic-agent" % newrelicVersion.value % nrConfig,
