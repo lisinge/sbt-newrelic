@@ -244,10 +244,8 @@ common: &default_settings
     auto_instrument: true
 
   class_transformer:
-    # This instrumentation reports the name of the user principal returned from 
-    # HttpServletRequest.getUserPrincipal() when servlets and filters are invoked.
-    com.newrelic.instrumentation.servlet-user:
-      enabled: false
+    akka_instrumentation:
+      enabled: ${{akka_instrumentation_enabled}}
 
 # Application Environments
 # ------------------------------------------
