@@ -19,6 +19,7 @@ object NewRelic extends AutoPlugin {
     val newrelicConfig = taskKey[File]("Generates a New Relic configuration file")
     val newrelicConfigTemplate = settingKey[java.net.URL]("Location of New Relic configuration template")
     val newrelicLicenseKey = settingKey[Option[String]]("License Key for New Relic account")
+    val newrelicAkkaInstrumentation = settingKey[Boolean]("Specifies whether Akka instrumentation is enabled")
     val newrelicCustomTracing = settingKey[Boolean]("Option to scan and instrument @Trace annotations")
     val newrelicTemplateReplacements = settingKey[Seq[(String, String)]]("Replacements for New Relic configuration template")
     val newrelicIncludeApi = settingKey[Boolean]("Add New Relic API artifacts to library dependencies")
@@ -40,10 +41,12 @@ object NewRelic extends AutoPlugin {
     newrelicConfig := makeNewRelicConfig((target in Universal).value, newrelicConfigTemplate.value, newrelicTemplateReplacements.value),
     newrelicConfigTemplate := getNewrelicConfigTemplate,
     newrelicLicenseKey := None,
+    newrelicAkkaInstrumentation := true,
     newrelicCustomTracing := false,
     newrelicTemplateReplacements := Seq(
       "app_name" -> newrelicAppName.value,
       "license_key" -> newrelicLicenseKey.value.getOrElse(""),
+      "akka_instrumentation_enabled" -> newrelicAkkaInstrumentation.value.toString,
       "custom_tracing" -> newrelicCustomTracing.value.toString,
       "attributes_enabled" -> newrelicAttributesEnabled.value.toString,
       "browser_monitoring" -> newrelicBrowserInstrumentation.value.toString
