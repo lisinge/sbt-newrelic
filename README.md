@@ -25,7 +25,7 @@ Installation
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
-addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.0.8")
+addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.0.7")
 ```
 
 Configuration
