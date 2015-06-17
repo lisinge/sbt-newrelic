@@ -6,5 +6,3 @@ packageArchetype.java_application
 name := "app"
 
 NewRelic.packagerSettings
-
-newrelicVersion := "3.15.0"
