@@ -1,6 +1,8 @@
 sbt-newrelic
 =============
 
+[![Join the chat at https://gitter.im/gilt/sbt-newrelic](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/gilt/sbt-newrelic?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 newrelic support for any artifacts built with [sbt-native-packager](https://github.com/sbt/sbt-native-packager)
 
 Useful Links
