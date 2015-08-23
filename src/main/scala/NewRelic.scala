@@ -30,7 +30,7 @@ object NewRelic extends AutoPlugin {
 
   def packagerSettings: Seq[Setting[_]] = Seq(
     ivyConfigurations += nrConfig,
-    newrelicVersion := "3.18.0",
+    newrelicVersion := "3.19.2",
     newrelicAgent := findNewrelicAgent(update.value),
     newrelicAppName := name.value,
     newrelicAttributesEnabled := true,
