@@ -29,7 +29,7 @@ Installation for sbt-native-packger 0.7.x (and Play 2.3.x)
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
-addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.0.8")
+addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.0.10")
 ```
 
 To use the NewRelic settings in your project, add `NewRelic.packagerSettings` to your build. If you are manually adding sbt-native-packager
