@@ -23,7 +23,7 @@ This can by done by adding the plugin following instructions at http://www.scala
 another plugin that includes and initializes it (e.g. the SBT plugin for Play 2.4.x).
 
 
-Installation for sbt-native-packger 0.7.x (and Play 2.3.x)
+Installation for sbt-native-packager 0.7.x (and Play 2.3.x)
 ------------
 
 Add the following to your `project/plugins.sbt` file:
