@@ -19,7 +19,7 @@ The following is a list of useful links related to newrelic:
 Prerequisites
 -------------
 The plugin assumes that sbt-native-packager has been included in your SBT build configuration.
-This can by done by adding the plugin following instructions at http://www.scala-sbt.org/sbt-native-packager/ or by adding
+This can be done by adding the plugin following instructions at http://www.scala-sbt.org/sbt-native-packager/ or by adding
 another plugin that includes and initializes it (e.g. the SBT plugin for Play 2.4.x).
 
 
