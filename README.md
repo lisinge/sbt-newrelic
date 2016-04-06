@@ -46,7 +46,7 @@ Installation for sbt-native-packager 1.0.x (and Play 2.4.x)
 Add the following to your `project/plugins.sbt` file:
 
 ```scala
-addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.1.5")
+addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.1.6")
 ```
 
 To use the NewRelic settings in your project, add the `NewRelic` auto-plugin to your project.
