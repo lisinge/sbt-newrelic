@@ -22,25 +22,7 @@ The plugin assumes that sbt-native-packager has been included in your SBT build 
 This can be done by adding the plugin following instructions at http://www.scala-sbt.org/sbt-native-packager/ or by adding
 another plugin that includes and initializes it (e.g. the SBT plugin for Play 2.4.x).
 
-
-Installation for sbt-native-packager 0.7.x (and Play 2.3.x)
-------------
-
-Add the following to your `project/plugins.sbt` file:
-
-```scala
-addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.0.10")
-```
-
-To use the NewRelic settings in your project, add `NewRelic.packagerSettings` to your build. If you are manually adding sbt-native-packager
-archetypes, you should add this line after the archetype has set default values for settings.
-
-```scala
-NewRelic.packagerSettings
-```
-
-
-Installation for sbt-native-packager 1.0.x (and Play 2.4.x)
+Installation for sbt-native-packager 1.0.x or newer (and Play 2.4.x)
 ------------
 
 Add the following to your `project/plugins.sbt` file:
@@ -49,12 +31,11 @@ Add the following to your `project/plugins.sbt` file:
 addSbtPlugin("com.gilt.sbt" % "sbt-newrelic" % "0.1.6")
 ```
 
-To use the NewRelic settings in your project, add the `NewRelic` auto-plugin to your project.
+To enable NewRelic for your project, add the `NewRelic` auto-plugin to your project.
 
 ```scala
 enablePlugins(NewRelic)
 ```
-
 
 Configuration
 -------------
