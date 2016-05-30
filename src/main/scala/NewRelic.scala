@@ -5,7 +5,7 @@ import sbt.Keys._
 
 import com.typesafe.sbt.SbtNativePackager._
 import com.typesafe.sbt.packager.archetypes.JavaAppPackaging
-import com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport.bashScriptExtraDefines
+import com.typesafe.sbt.packager.archetypes.JavaAppPackaging.autoImport._
 import com.typesafe.sbt.packager.archetypes.TemplateWriter
 
 object NewRelic extends AutoPlugin {
@@ -63,7 +63,8 @@ object NewRelic extends AutoPlugin {
       newrelicAgent.value -> "newrelic/newrelic.jar",
       newrelicConfig.value -> "newrelic/newrelic.yml"
     ),
-    bashScriptExtraDefines += """addJava "-javaagent:${app_home}/../newrelic/newrelic.jar""""
+    bashScriptExtraDefines += """addJava "-javaagent:${app_home}/../newrelic/newrelic.jar"""",
+    batScriptExtraDefines += """set "_JAVA_OPTS=%_JAVA_OPTS% -javaagent:%@@APP_ENV_NAME@@_HOME%\\newrelic\\newrelic.jar""""
   )
 
   private[newrelic] def makeNewRelicConfig(tmpDir: File, source: java.net.URL, replacements: Seq[(String, String)]): File = {
