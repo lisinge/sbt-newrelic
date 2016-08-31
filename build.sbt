@@ -11,7 +11,7 @@ scalacOptions ++= List(
   "-encoding", "UTF-8"
 )
 
-javaVersionPrefix in javaVersionCheck := Some("1.6")
+javaVersionPrefix in javaVersionCheck := Some("1.7")
 
 addSbtPlugin("com.typesafe.sbt" % "sbt-native-packager" % "1.0.1" % "provided")
 
