@@ -21,6 +21,7 @@ object NewRelic extends AutoPlugin {
     val newrelicLicenseKey = settingKey[Option[String]]("License Key for New Relic account")
     val newrelicAkkaInstrumentation = settingKey[Boolean]("Specifies whether Akka instrumentation is enabled")
     val newrelicCustomTracing = settingKey[Boolean]("Option to scan and instrument @Trace annotations")
+    val newrelicIgnoreErrors = settingKey[Seq[String]]("List of exceptions that New Relic should not report as errors")
     val newrelicTemplateReplacements = settingKey[Seq[(String, String)]]("Replacements for New Relic configuration template")
     val newrelicIncludeApi = settingKey[Boolean]("Add New Relic API artifacts to library dependencies")
   }
@@ -43,13 +44,15 @@ object NewRelic extends AutoPlugin {
     newrelicLicenseKey := None,
     newrelicAkkaInstrumentation := true,
     newrelicCustomTracing := false,
+    newrelicIgnoreErrors := Seq("akka.actor.ActorKilledException"),
     newrelicTemplateReplacements := Seq(
       "app_name" -> newrelicAppName.value,
       "license_key" -> newrelicLicenseKey.value.getOrElse(""),
       "akka_instrumentation_enabled" -> newrelicAkkaInstrumentation.value.toString,
       "custom_tracing" -> newrelicCustomTracing.value.toString,
       "attributes_enabled" -> newrelicAttributesEnabled.value.toString,
-      "browser_monitoring" -> newrelicBrowserInstrumentation.value.toString
+      "browser_monitoring" -> newrelicBrowserInstrumentation.value.toString,
+      "ignore_errors" -> newrelicIgnoreErrors.value.mkString(",")
     ),
     newrelicIncludeApi := false,
     libraryDependencies += "com.newrelic.agent.java" % "newrelic-agent" % newrelicVersion.value % nrConfig,
